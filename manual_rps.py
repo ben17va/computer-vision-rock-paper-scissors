@@ -35,7 +35,7 @@ class RPS:
                 print("You have lost!")
 
     def play(self):
-        print('lets play') 
+        print('lets play')
 
 
 game = RPS().play() 
