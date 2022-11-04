@@ -1,41 +1,41 @@
 import random
 
-class RPS:
+def get_user_choice():
+    while True:
+        choice = ['r','p','s']
+        user_choice =  input("What is your choice 'r' for rock 'p' for paper or 's' for scissors\n")
+        print(f'You have picked {user_choice}')
+        if user_choice in choice:
+            return user_choice
 
-    def __init__(self):
-        self.user_choice = ""
-        self.computer_choice = ""
-        pass
-    def get_user_choice(self):
-         user_choice =  input("What is your choice 'r' for rock 'p' for paper or 's' for scissors\n")
-         print(f'You have picked {user_choice}')
-         return user_choice
+def get_computer_choice():
+    choice = ['r','p','s']
+    computer_choice = random.choice(choice).lower
+    return computer_choice 
 
-    def get_computer_choice(self):
-        computer_choice = random.choice('r', 'p', 's') 
-        return computer_choice 
-
-    def get_winner(self,computer_choice,user_choice):
+def get_winner(computer_choice,user_choice):
         if user_choice == computer_choice:
             print("The game is a tie!")
-        elif user_choice == 'rock':
-            if computer_choice == 'scissors':
+        elif user_choice == 'r':
+            if computer_choice == 's':
                 print("You have won!")
             else:
                 print ('You have lost!') 
-        elif user_choice == 'paper':
-            if computer_choice == 'rock':
+        elif user_choice == 'p':
+            if computer_choice == 'r':
                 print("You have won!")
             else:
                 print("You have lost!")
-        elif user_choice == 'scissors':
-            if computer_choice == 'paper':
+        elif user_choice == 's':
+            if computer_choice == 'p':
                 print("You have won!")
             else:
                 print("You have lost!")
 
-    def play(self):
-        print('lets play') 
+def play():
+
+    computer_choice = get_computer_choice
+    user_choice = get_user_choice
+    get_winner(computer_choice,user_choice)
 
 
-game = RPS().play() 
